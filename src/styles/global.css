@@ -14,7 +14,7 @@ body {
     color: var(--text-main);
 }
 
-/* Navbar reutilizada */
+/* ----------------------Navbar--------------------------------------  */
 .navbar {
     background-color: var(--dark-bg);
     color: white;
@@ -22,15 +22,64 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.brand { 
-    font-size: 1.5rem; 
-    font-weight: bold; 
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
+
+/* --------------------------DrpDown en el NavBar-------------------------- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dark-bg);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-color);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /* ------------------Status Pill (Indicador de estado)---------------- */
 .status-pill {
@@ -40,22 +89,49 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 }
-.pill-ok { background-color: #22c55e; color: white; }
-.pill-error { background-color: #ef4444; color: white; }
+
+.pill-ok {
+    background-color: #22c55e;
+    color: white;
+}
+
+.pill-error {
+    background-color: #ef4444;
+    color: white;
+}
 
 .backend-msg {
     color: var(--primary-color);
     font-size: 0.95rem;
     font-weight: 500;
-    margin-top: -10px; /* Para pegarlo un poco al h1 */
+    margin-top: -10px;
+    /* Para pegarlo un poco al h1 */
     font-style: italic;
 }
 
-.db-postgres { background: #336791; color: white; }
-.db-mysql { background: #00758f; color: white; }
-.db-mongoDB { background: #003b57; color: white; }
-.db-nulo { background-color: #ef4444; color: white; }
-.db-icon { font-size: 0.9rem; }
+.db-postgres {
+    background: #336791;
+    color: white;
+}
+
+.db-mysql {
+    background: #00758f;
+    color: white;
+}
+
+.db-mongoDB {
+    background: #003b57;
+    color: white;
+}
+
+.db-nulo {
+    background-color: #ef4444;
+    color: white;
+}
+
+.db-icon {
+    font-size: 0.9rem;
+}
 
 
 /* Layout */
@@ -66,6 +142,8 @@ body {
 }
 
 .main-header {
+    max-width: 1000px;
+    margin: 2rem auto;
     margin-bottom: 2rem;
 }
 
@@ -81,7 +159,9 @@ body {
     transition: opacity 0.2s;
 }
 
-.btn-primary:hover { opacity: 0.9; }
+.btn-primary:hover {
+    opacity: 0.9;
+}
 
 
 /* ------------- Estilos específicos para la PDF Card ------------ */
@@ -98,13 +178,13 @@ body {
     display: flex;
     flex-direction: column;
     transition: transform 0.2s, box-shadow 0.2s;
-    padding: 0; 
+    padding: 0;
     overflow: hidden;
 }
 
 .pdf-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
@@ -118,14 +198,15 @@ body {
 .card-image img {
     max-width: 120px;
     height: auto;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .card-info {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Esto hace que todas las cards midan lo mismo aunque el texto varíe */
+    flex-grow: 1;
+    /* Esto hace que todas las cards midan lo mismo aunque el texto varíe */
 }
 
 .badge-type {
@@ -157,7 +238,7 @@ body {
 /* ----------------------- Grid de PDFs  ------------------------------ */
 .grid-pdfs {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -193,7 +274,8 @@ body {
 
 /* Clase para errores de texto (por ejemplo debajo de la tabla) */
 .text-error {
-    color: #ef4444; /* Rojo similar a tu pill-error */
+    color: #ef4444;
+    /* Rojo similar a tu pill-error */
     background-color: #fef2f2;
     padding: 0.75rem;
     border-radius: 6px;
@@ -219,25 +301,42 @@ body {
 }
 
 @keyframes dots {
-    0%, 20% { content: "."; }
-    40% { content: ".."; }
-    60% { content: "..."; }
-    80%, 100% { content: ""; }
+
+    0%,
+    20% {
+        content: ".";
+    }
+
+    40% {
+        content: "..";
+    }
+
+    60% {
+        content: "...";
+    }
+
+    80%,
+    100% {
+        content: "";
+    }
 }
 
 /*--------------RESPONSIVE-----------------------*/
 @media (max-width: 600px) {
     .custom-table {
         display: block;
-        overflow-x: auto; /* Permite scroll horizontal si la tabla es muy ancha */
+        overflow-x: auto;
+        /* Permite scroll horizontal si la tabla es muy ancha */
         white-space: nowrap;
     }
-    
+
     .brand {
-        font-size: 1.2rem; /* Texto un poco más pequeño en móvil */
+        font-size: 1.2rem;
+        /* Texto un poco más pequeño en móvil */
     }
 
     .main-header h1 {
-        font-size: 1.8rem; /* Evitamos que el título ocupe toda la pantalla */
+        font-size: 1.8rem;
+        /* Evitamos que el título ocupe toda la pantalla */
     }
 }

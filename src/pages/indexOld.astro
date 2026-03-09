@@ -1,11 +1,28 @@
 ---
 import "../styles/global.css";
-import Layout from "../layouts/Layout.astro";
+const title = "Descargas PDF";
 ---
-<Layout>
-   
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand">DESCARGAS PDF</div>
+      <div class="status-pill pill-ok">Online</div>
+    </nav>
 
     <main class="content">
+      <header class="main-header">
+        <h1>Portal de Descargas de documentación</h1>
+        <p class="backend-msg">Conectado al sistema </p>
+      </header>
 
       <section class="grid-pdfs">
         <article class="card pdf-card">
@@ -78,4 +95,5 @@ import Layout from "../layouts/Layout.astro";
         </article>
       </section>
     </main>
- </Layout>
+  </body>
+</html>
