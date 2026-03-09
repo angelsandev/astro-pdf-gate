@@ -1,5 +1,13 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.3] Optimizar imágenes Astro  - 2026-3-9
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ 
+- **Estructura:** Crear carpeta `assets` para las imágenes.
+- **index.astro:** Importar la etiqueta especial `Image` de `Astro` para utilizarla para las imágenes.
+
+
+
 ### [V0.0.2] Dropdown Menu  - 2026-3-9
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Crear `Dropdown` en el menú de navegación.

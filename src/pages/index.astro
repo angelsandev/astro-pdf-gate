@@ -1,81 +1,93 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import portadapdf from "../assets/portadapdf.webp";
 ---
+
 <Layout>
-   
+  <main class="content">
+    <section class="grid-pdfs">
+      <article class="card pdf-card">
+        <div class="card-image">
+          <Image
+            src={portadapdf}
+            alt="Portada de manual técnico"
+            width={200}
+            height={260}
+            format="webp"
+          />
+        </div>
+        <div class="card-info">
+          <span class="badge-type">User's Manual</span>
+          <h3 class="pdf-title">Serie CV-X: Guía de configuración rápida</h3>
+          <p class="pdf-desc">
+            Instrucciones paso a paso para la puesta en marcha de sistemas de
+            visión.
+          </p>
+          <button class="btn-primary btn-full">Descargar PDF</button>
+        </div>
+      </article>
 
-    <main class="content">
+      <article class="card pdf-card">
+        <div class="card-image">
+          <Image
+            src={portadapdf}
+            alt="Portada de manual técnico"
+            width={200}
+            height={260}
+            format="webp"
+          />
+        </div>
+        <div class="card-info">
+          <span class="badge-type">Catalog</span>
+          <h3 class="pdf-title">Sensores Láser Serie LR-Z</h3>
+          <p class="pdf-desc">
+            Especificaciones completas y ejemplos de aplicación industrial.
+          </p>
+          <button class="btn-primary btn-full">Descargar PDF</button>
+        </div>
+      </article>
 
-      <section class="grid-pdfs">
-        <article class="card pdf-card">
-          <div class="card-image">
-            <img
-              src="https://placehold.co/200x260/e2e8f0/1e293b?text=PDF+Manual"
-              alt="Portada Manual"
-            />
-          </div>
-          <div class="card-info">
-            <span class="badge-type">User's Manual</span>
-            <h3 class="pdf-title">Serie CV-X: Guía de configuración rápida</h3>
-            <p class="pdf-desc">
-              Instrucciones paso a paso para la puesta en marcha de sistemas de
-              visión.
-            </p>
-            <button class="btn-primary btn-full">Descargar PDF</button>
-          </div>
-        </article>
+      <article class="card pdf-card">
+        <div class="card-image">
+          <Image
+            src={portadapdf}
+            alt="Portada de manual técnico"
+            width={200}
+            height={260}
+            format="webp"
+          />
+        </div>
+        <div class="card-info">
+          <span class="badge-type">Catalog</span>
+          <h3 class="pdf-title">Sensores Láser Serie LR-Z</h3>
+          <p class="pdf-desc">
+            Especificaciones completas y ejemplos de aplicación industrial.
+          </p>
+          <button class="btn-primary btn-full">Descargar PDF</button>
+        </div>
+      </article>
 
-        <article class="card pdf-card">
-          <div class="card-image">
-            <img
-              src="https://placehold.co/200x260/e2e8f0/1e293b?text=Catálogo"
-              alt="Portada Catálogo"
-            />
-          </div>
-          <div class="card-info">
-            <span class="badge-type">Catalog</span>
-            <h3 class="pdf-title">Sensores Láser Serie LR-Z</h3>
-            <p class="pdf-desc">
-              Especificaciones completas y ejemplos de aplicación industrial.
-            </p>
-            <button class="btn-primary btn-full">Descargar PDF</button>
-          </div>
-        </article>
-
-		<article class="card pdf-card">
-          <div class="card-image">
-            <img
-              src="https://placehold.co/200x260/e2e8f0/1e293b?text=Catálogo"
-              alt="Portada Catálogo"
-            />
-          </div>
-          <div class="card-info">
-            <span class="badge-type">Catalog</span>
-            <h3 class="pdf-title">Sensores Láser Serie LR-Z</h3>
-            <p class="pdf-desc">
-              Especificaciones completas y ejemplos de aplicación industrial.
-            </p>
-            <button class="btn-primary btn-full">Descargar PDF</button>
-          </div>
-        </article>
-
-		<article class="card pdf-card">
-          <div class="card-image">
-            <img
-              src="https://placehold.co/200x260/e2e8f0/1e293b?text=Catálogo"
-              alt="Portada Catálogo"
-            />
-          </div>
-          <div class="card-info">
-            <span class="badge-type">Catalog</span>
-            <h3 class="pdf-title">Sensores Láser Serie LR-Z</h3>
-            <p class="pdf-desc">
-              Especificaciones completas y ejemplos de aplicación industrial.
-            </p>
-            <button class="btn-primary btn-full">Descargar PDF</button>
-          </div>
-        </article>
-      </section>
-    </main>
- </Layout>
+      <article class="card pdf-card">
+        <div class="card-image">
+          <Image
+            src={portadapdf}
+            alt="Portada de manual técnico"
+            width={200}
+            height={260}
+            format="webp"
+          />
+        </div>
+        <div class="card-info">
+          <span class="badge-type">Catalog</span>
+          <h3 class="pdf-title">Sensores Láser Serie LR-Z</h3>
+          <p class="pdf-desc">
+            Especificaciones completas y ejemplos de aplicación industrial.
+          </p>
+          <button class="btn-primary btn-full">Descargar PDF</button>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

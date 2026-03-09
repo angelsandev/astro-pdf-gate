@@ -2,11 +2,23 @@
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
+## Imágenes
+
+* Se guardan en `src/assets/`.
+* Hay que importar la imagen en cada componente que se vaya a utilizar.
+* Se utiliza la etiqueta especial `Image`.
+* Las imágenes que se guarden en ese directorio, **Astro** las optimiza autom.
+* **Astro** las transforma automáticamente a `webp` y redimensiona a 400px, 800px...
+* **Ahorro de datos** Esto implica una optimización automcática (para móviles, etc...).
+
 ## 🚀 Estructura del proyecto
 
 
 ```text
 src/
+├── public/
+│   ├── pdfs/         # Archivos pdf
+│   └── images/       # Imagenes
 ├── components/       # Piezas pequeñas (PdfCard.astro, Nav.astro)
 ├── layouts/          # (Navbar + Footer)
 ├── styles/           # global.css
