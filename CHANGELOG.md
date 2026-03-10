@@ -1,5 +1,14 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.5] Fichas de Datos  - 2026-3-10
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probar cambio de `Descargas` a `Fichas de Datos` y comprobar que se muestran todos los datos y Cards correctos.
+- **Estructura:** Crear `fichas.astro` para introducir listas con datos de tipo, tamaño y url para cada pdf y el tipo será = `Fichas de Datos`.
+
+
+
+
+
 ### [V0.0.4] PdfCard-Component y manuales.astro  - 2026-3-10
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Probar cambio de `Descargas` a `Manuales` y comprobar que se muestran todos los datos y Cards correctos.
