@@ -15,13 +15,15 @@ const { title, type, size, url } = Astro.props;
         src={portadapdf}
         alt="Portada de manual técnico"
         width={200}
-        height={260}
+        height={250}
         format="webp"
+        loading="eager"
+        fetchpriority="high"
       />
     </div>
     <div class="card-info">
       <span class="badge-type">{type}</span>
-      <h3 class="pdf-title">{title}</h3>
+      <h2 class="pdf-title">{title}</h2>
       <p class="pdf-desc">
         PDF: {size}
       </p>

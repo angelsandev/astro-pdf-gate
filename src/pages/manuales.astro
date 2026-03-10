@@ -1,33 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PdfCard from "../components/PdfCard.astro";
+import { dataPdfs } from "../data/documentos.js";
 
-const misPdfs = [
-  {
-    title: "Título documento 1",
-    type: "Manual",
-    size: "300KB",
-    url: "/pdfs/UP5.2. Creación de usuarios para acceso remoto al servidor FTP - CE4.b).pdf",
-  },
-  {
-    title: "Título documento 2",
-    type: "Manual",
-    size: "120KB",
-    url: "/pdfs/UP5.3. Acceso al servidor en modo activo y pasivo - CE4.c).pdf",
-  },
-  {
-    title: "Título documento 3",
-    type: "Manual",
-    size: "320KB",
-    url: "/pdfs/UP5.2. Creación de usuarios para acceso remoto al servidor FTP - CE4.b).pdf",
-  },
-  {
-    title: "Título documento 4",
-    type: "Manual",
-    size: "120KB",
-    url: "/pdfs/UP5.3. Acceso al servidor en modo activo y pasivo - CE4.c).pdf",
-  },
-];
+const manualPdfs = dataPdfs.filter(item => item.type === "Manual");
 
 const title = "Manuales PDF"
 ---
@@ -36,7 +12,7 @@ const title = "Manuales PDF"
   <Layout title={title}>
     <section class="grid-pdfs">
       {
-        misPdfs.map((item) => (
+        manualPdfs.map((item) => (
           <PdfCard
             title={item.title}
             type={item.type}
