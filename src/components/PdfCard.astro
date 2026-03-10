@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import portadapdf from "../assets/portadapdf.webp";
+
+const { title, type, size, url } = Astro.props;
+
+
+---
+
+
+  <article class="card pdf-card">
+    <div class="card-image">
+      <Image
+        src={portadapdf}
+        alt="Portada de manual técnico"
+        width={200}
+        height={260}
+        format="webp"
+      />
+    </div>
+    <div class="card-info">
+      <span class="badge-type">{type}</span>
+      <h3 class="pdf-title">{title}</h3>
+      <p class="pdf-desc">
+        PDF: {size}
+      </p>
+      <button class="btn-primary btn-full">Descargar PDF</button>
+      <!-- <a href={url} class="btn-primary btn-full text-center" target="_blank"> 
+        Descargar PDF
+      </a>-->
+    </div>
+  </article>
+

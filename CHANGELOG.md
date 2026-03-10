@@ -1,5 +1,14 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.4] PdfCard-Component y manuales.astro  - 2026-3-10
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probar cambio de `Descargas` a `Manuales` y comprobar que se muestran todos los datos y Cards correctos.
+- **Estructura:** Crear `manuales.astro` para introducir listas con datos de tipo, tamaño y url para cada pdf.
+- **Estructura:** Crear componente `PdfCard.astro` donde se muestra la Card con todos los datos.
+- **Layout.astro:** Utilizar props para los títulos.
+- **PdfCard.astro.astro:** Utilizar props para los datos. 
+- **CSS:** Corregir estilo para el botón de `descargas` en el menú Nav.
+
 ### [V0.0.3] Optimizar imágenes Astro  - 2026-3-9
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ 

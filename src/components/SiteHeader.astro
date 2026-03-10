@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
+const { title } = Astro.props;
 ---
 
 <header class="main-header">
-  <h1>Portal de Descargas de documentación</h1>
-  <p class="backend-msg">Conectado al sistema</p>
+  <h1>{title}</h1>
+  <!-- <p class="backend-msg">Conectado al sistema</p> -->
 </header>

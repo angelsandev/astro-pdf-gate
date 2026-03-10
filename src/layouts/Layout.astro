@@ -3,7 +3,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteNav from "../components/SiteNav.astro";
 import "../styles/global.css";
-const title = "Descargas PDF";
+const { title = "Portal de Descargas" } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,8 +17,9 @@ const title = "Descargas PDF";
   </head>
   <body>
     <SiteNav />
-    <SiteHeader />
-    <slot />
-
+    <SiteHeader title={title}/>
+    <main class="content">
+      <slot />
+    </main>
   </body>
 </html>
