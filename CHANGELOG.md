@@ -1,5 +1,14 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.7] Email Modal  - 2026-3-10
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probado al pulsar botón se abre modal. Si introduces email le das a descargar e inicia descarga. Si pulsas la `X` se cierra.
+- **Estructura:** Crear carpeta para añadir scripts en `js`.
+- **Estructura:** Crear componente `EmailModal.astro` para controlar el pop up para pedir el email con un formulario.
+- **modal.js:** Lógica para mostrar el `modal Card` par aintroducir emil y permitir descarga.
+
+
+
 ### [V0.0.6] Filtrar Datos  - 2026-3-10
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Crear un archivo con todos los datos de los documentos. Acceder a ese archivo desde cada componente y filtrar según el tipo.

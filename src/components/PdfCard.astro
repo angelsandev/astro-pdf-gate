@@ -27,7 +27,7 @@ const { title, type, size, url } = Astro.props;
       <p class="pdf-desc">
         PDF: {size}
       </p>
-      <button class="btn-primary btn-full">Descargar PDF</button>
+      <button class="btn-primary btn-full" data-pdf-url={url}>Descargar PDF</button>
       <!-- <a href={url} class="btn-primary btn-full text-center" target="_blank"> 
         Descargar PDF
       </a>-->

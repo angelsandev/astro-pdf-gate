@@ -3,7 +3,8 @@ import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteNav from "../components/SiteNav.astro";
 import "../styles/global.css";
-import { prefetch } from 'astro:prefetch';
+import { prefetch } from "astro:prefetch";
+import EmailModal from "../components/EmailModal.astro";
 
 const { title = "Portal de Descargas" } = Astro.props;
 ---
@@ -14,15 +15,22 @@ const { title = "Portal de Descargas" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Descarga de manuales técnicos y fichas de datos de automatización industrial. Todos los PDF en un solo lugar."/>
+    <meta
+      name="description"
+      content="Descarga de manuales técnicos y fichas de datos de automatización industrial. Todos los PDF en un solo lugar."
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
     <SiteNav />
-    <SiteHeader title={title}/>
+    <SiteHeader title={title} />
     <main class="content">
       <slot />
+      <EmailModal />
+      <script>
+        import "../scripts/modal.js";
+      </script>
     </main>
   </body>
 </html>
