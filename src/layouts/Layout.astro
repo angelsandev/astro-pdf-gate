@@ -3,13 +3,15 @@ import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteNav from "../components/SiteNav.astro";
 import "../styles/global.css";
-import { prefetch } from "astro:prefetch";
 import EmailModal from "../components/EmailModal.astro";
 
+interface Props {
+  title?: string; // '?' => title es opcional
+}
 const { title = "Portal de Descargas" } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,10 +29,10 @@ const { title = "Portal de Descargas" } = Astro.props;
     <SiteHeader title={title} />
     <main class="content">
       <slot />
-      <EmailModal />
-      <script>
-        import "../scripts/modal.js";
-      </script>
     </main>
+    <EmailModal />
+    <script>
+      import "../scripts/modal.ts";
+    </script>
   </body>
 </html>

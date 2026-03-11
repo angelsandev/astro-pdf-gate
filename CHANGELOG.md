@@ -1,11 +1,19 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.8] TypeScript convertir scripts JS a TS  - 2026-3-11
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Convertir todos los scripts a TypeScript. Probar todas las páginas y descarga de documentos ok.
+- **Estructura:** Transformar todos los archivos `*.js` a `*.ts`.
+- **Estructura:** Modificar archivos `*.astro` para utilizar `interface` para las `props` y permitir el tipado correcto de TypeScript.
+
+
+
 ### [V0.0.7] Email Modal  - 2026-3-10
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Probado al pulsar botón se abre modal. Si introduces email le das a descargar e inicia descarga. Si pulsas la `X` se cierra.
 - **Estructura:** Crear carpeta para añadir scripts en `js`.
 - **Estructura:** Crear componente `EmailModal.astro` para controlar el pop up para pedir el email con un formulario.
-- **modal.js:** Lógica para mostrar el `modal Card` par aintroducir emil y permitir descarga.
+- **modal.js:** Lógica para mostrar el `modal Card` para introducir email y permitir descarga.
 
 
 

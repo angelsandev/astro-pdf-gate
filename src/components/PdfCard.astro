@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import portadapdf from "../assets/portadapdf.webp";
+import type { PDFDocument } from "../data/documentos";
+
+interface Props extends PDFDocument {}// Las Props en este component == lo que hay en PDFDocument
 
 const { title, type, size, url } = Astro.props;
 

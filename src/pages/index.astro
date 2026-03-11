@@ -1,14 +1,14 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import { dataPdfs } from "../data/documentos.js";
+import { dataPdfs, type PDFDocument } from "../data/documentos";
 import PdfCard from "../components/PdfCard.astro";
 
 ---
 
 <Layout>
   <section class="grid-pdfs">
-   {dataPdfs.map((item) =>(
+   {dataPdfs.map((item: PDFDocument) =>(
     <PdfCard
     {...item}
     ></PdfCard>

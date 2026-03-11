@@ -1,4 +1,13 @@
-export const dataPdfs = [
+// Definir estructura de cada PDF
+export interface PDFDocument {
+  title: string;
+  type: 'Manual' | 'Ficha de Datos'; // Solo permite estos dos textos exactos
+  size: string;
+  url: string;
+}
+
+
+export const dataPdfs: PDFDocument[] = [
   {
     title: "Título documento 1",
     type: "Manual",
