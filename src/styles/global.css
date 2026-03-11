@@ -193,7 +193,7 @@ body {
 }
 
 .card-image {
-    
+
     background-color: #f1f5f9;
     display: flex;
     justify-content: center;
@@ -204,11 +204,11 @@ body {
 }
 
 .card-image img {
-max-width: 100%;
+    max-width: 100%;
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain;    
+    object-fit: contain;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border-radius: 2px;
 }
@@ -263,19 +263,19 @@ max-width: 100%;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 90%;
-  }
+}
 
-  .modal::backdrop {
+.modal::backdrop {
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
-  }
+}
 
-  .modal-content {
+.modal-content {
     padding: 2rem;
     position: relative;
-  }
+}
 
-  .close-btn {
+.close-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -283,18 +283,36 @@ max-width: 100%;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-  }
+}
 
-  .email-input {
+.email-input {
     width: 100%;
     padding: 0.8rem;
     margin: 1rem 0;
     border: 1px solid #ddd;
     border-radius: 6px;
     box-sizing: border-box;
-  }
+}
 
+/* El texto que aparece debajo del input */
+.error-text {
+    color: #dc2626;
+    font-size: 0.85rem;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: none;
+}
 
+/* Esta clase se activará cuando haya un error */
+.error-text.show {
+    display: block;
+}
+
+/* Cambio de estilo para el input cuando falla */
+.email-input.invalid {
+    border: 2px solid #dc2626 !important;
+    background-color: #fef2f2;
+}
 
 
 

@@ -1,5 +1,15 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.9] Validación Email  - 2026-3-11
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probado todo, validación de email, mensajes e input en rojo, descarga correcta.
+- **modal.ts:** Añadir validación email con `Regexp`
+- **modal.ts:** Añadir y eliminar clases `invalid` y `show` par amostrar color rojo y mensaje de error si se introduce un email incorrecto.
+- **EmailModal.astro** Añadir etiqueta `novalidate` al `form` para evitar las validaciones automaticas de HTML5 y que solo valide mediante nuestro `modal.ts`
+ 
+
+
+
 ### [V0.0.8] TypeScript convertir scripts JS a TS  - 2026-3-11
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Convertir todos los scripts a TypeScript. Probar todas las páginas y descarga de documentos ok.
