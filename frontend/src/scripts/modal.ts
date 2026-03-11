@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+
 // src/scripts/modal.ts
 
 export function setupModal(): void {
@@ -8,6 +11,7 @@ export function setupModal(): void {
   const closeBtn = document.querySelector<HTMLButtonElement>('#close-modal');
 
   let currentPdfUrl: string | null = "";
+let currentPdfTitle: string = "";
 
   if (!modal) {
     console.error("No se encontró el modal con ID #download-modal");
@@ -23,12 +27,13 @@ export function setupModal(): void {
       const card = btn.closest('.pdf-card');
 
       if (!card) return;
+      
       const titleElement = card.querySelector('.pdf-title') as HTMLElement;
-      const title = titleElement?.innerText || "Documento";
 
+      currentPdfTitle = titleElement?.innerText || "Documento";
       currentPdfUrl = btn.getAttribute('data-pdf-url');
 
-      if (pdfNameSpan) pdfNameSpan.innerText = title;
+      if (pdfNameSpan) pdfNameSpan.innerText = currentPdfTitle;
 
 
       modal.showModal();
@@ -44,7 +49,7 @@ export function setupModal(): void {
     if (e.target === modal) modal.close();
   });
 
-  emailForm?.addEventListener('submit', (e: SubmitEvent) => {
+  emailForm?.addEventListener('submit', async (e: SubmitEvent) => {
     e.preventDefault();
 
     // Buscar el input específicamente
@@ -63,7 +68,7 @@ export function setupModal(): void {
 
     // VALIDACIÓN
     if (!emailRegex.test(email)) {
-      
+
       input?.classList.add('invalid');// Input en rojo
 
       if (errorSpan) {                // Mensaje personalizado
@@ -77,6 +82,24 @@ export function setupModal(): void {
 
 
     if (email && currentPdfUrl) {
+
+      try {
+        const response = await axios.post('http://localhost:3000/download', {
+          email: email,
+          pdf_name: currentPdfTitle
+        });
+
+        // No hace falta hacer .json(), los datos están en response.data
+        console.log('Respuesta del servidor:', response.data);
+
+      } catch (error) {
+        console.error('Error con Axios:', error);
+      }
+
+
+
+
+
       const link = document.createElement('a'); // Crear un elemento anchor
       link.href = currentPdfUrl;
       link.setAttribute('download', '');        // Asignar el modo Descarga

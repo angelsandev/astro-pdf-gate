@@ -2,6 +2,22 @@
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
+## Instalaciones necesarias
+
+### Frontend
+* Instalar axios
+```bash
+npm install axios
+```
+
+### Backend
+* Instalar librería para leer el .env
+```bash
+npm install @nestjs/config
+```
+
+
+
 ## Imágenes
 
 * Se guardan en `src/assets/`.

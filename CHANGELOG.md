@@ -1,5 +1,20 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+
+### [V0.1.0] Separar Forntend y Backend  - 2026-3-11
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Se envía email desde Front, se recibe en Back y la info vuelve al front correcto.
+- **Estructura:** Crear carpeta Frontend.
+- **Estructura:** Instalar Nestjs y crear proyecto `backend`.
+- **Backend:** Habilitar CORS en `main.ts` para permitir comunicación dentre fornt y back.
+- **Frontend:** Añadir llamada `axios` para enviar email al backend, en `modal.ts`
+- **Backend:** Añadir un controller en `app.controller.ts` que reciba el email del front y devuelva datos al Front
+- **Comunicacion:** Se utiliza `axios` para los endpoints. Esto hace que el performance de la web baje a un 89%. Si se utilizara `fetch` se optimizaría.
+- **.env:** Crear archivo `.env` en la raíz, instalar librería de configuración para leer el `.env` y modificar el modulo `app.module.ts`.
+
+
+
+
 ### [V0.0.9] Validación Email  - 2026-3-11
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Probado todo, validación de email, mensajes e input en rojo, descarga correcta.
