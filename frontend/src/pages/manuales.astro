@@ -1,26 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PdfCard from "../components/PdfCard.astro";
-import { dataPdfs, type PDFDocument } from "../data/documentos";
+import type { PDFDocument } from "../types/pdf";
+//import { dataPdfs, type PDFDocument } from "../data/documentos";
+//const manualPdfs: PDFDocument[] = dataPdfs.filter(item => item.type === "Manual");
 
-const manualPdfs: PDFDocument[] = dataPdfs.filter(item => item.type === "Manual");
+const response = await fetch("http://localhost:3000/pdfs");
+const allPdfs: PDFDocument[] = await response.json();
+const manualPdfs: PDFDocument[] = allPdfs.filter(
+  (item) => item.type === "Manual",
+);
 
-const title: string = "Manuales PDF"
+const title: string = "Manuales PDF";
+const BACKEND_URL = "http://localhost:3000/manuales";
 ---
 
-
-  <Layout title={title}>
-    <section class="grid-pdfs">
-      {
-        manualPdfs.map((item) => (
-          <PdfCard
-            title={item.title}
-            type={item.type}
-            size={item.size}
-            url={item.url}
-          ></PdfCard>
-        ))
-      }
-    </section>
-  </Layout>
-
+<Layout title={title}>
+  <section class="grid-pdfs">
+    {
+      manualPdfs.map((item) => (
+        <PdfCard
+          title={item.title}
+          type={item.type}
+          size={item.size}
+          url={`${BACKEND_URL}/${item.url}`}
+        />
+      ))
+    }
+    {/* Un pequeño aviso por si la base de datos no devuelve nada */}
+    {
+      manualPdfs.length === 0 && (
+        <p class="text-center">No se encontraron manuales disponibles.</p>
+      )
+    }
+  </section>
+</Layout>

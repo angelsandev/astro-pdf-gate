@@ -40,6 +40,37 @@ Es la interfaz de usuario, rápida y optimizada:
 * **Base de Datos:** MySQL.
 * **Estilos:** CSS3 nativo con metodología modular.
 
+---
+
+
+
+## ⚙️ Configuración del Entorno (.env)
+
+Para que el backend pueda comunicarse con la base de datos y servir los archivos correctamente, es necesario crear un archivo `.env` en la raíz de la carpeta `/backend`.
+
+### Variables requeridas:
+
+| Variable | Descripción | Valor por defecto |
+| :--- | :--- | :--- |
+| `PORT` | Puerto donde correrá el servidor NestJS | `3000` |
+| `DB_HOST` | Dirección del servidor de MySQL | `localhost` |
+| `DB_PORT` | Puerto de conexión de MySQL | `3306` |
+| `DB_USERNAME` | Usuario de la base de datos | `root` |
+| `DB_PASSWORD` | Contraseña del usuario | *(Vacío)* |
+| `DB_NAME` | Nombre de la base de datos | `astro_pdf_db` |
+
+### Ejemplo de configuración:
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=tu_contraseña_aqui
+DB_NAME=astro_pdf_db
+```
+
+---
+
 ## Ejecutar servidores en modo desarrollo
 
 ### Frontend
@@ -95,7 +126,7 @@ Sin instalar `@nestjs/serve-static` y configurar el main.ts, los archivos PDF so
 npm install @nestjs/serve-static
 ```
 
-
+---
 
 ## Imágenes
 
@@ -110,32 +141,34 @@ npm install @nestjs/serve-static
 
 
 ```text
-src/
-├── public/
-│   ├── pdfs/         # Archivos pdf
-│   └── images/       # Imagenes
-├── components/       # Piezas pequeñas (PdfCard.astro, Nav.astro)
-├── layouts/          # (Navbar + Footer)
-├── styles/           # global.css
-└── pages/            # Las rutas
-    ├── index.astro   # Redirigirá a /manuales o será la Home
-    ├── manuales.astro # Página de Manuales
-    └── fichas.astro   # Página de Ficha de Datos
-
-
-
-backend/src/
-  ├── main.ts              # Punto de entrada (CORS, Puerto)
-  ├── app.module.ts        # Une todos los módulos: Nest añade PdfsModule aquí dentro
-  ├── app.controller.ts
-  ├── app.service.ts
-  ├── common/              # (Opcional) Cosas compartidas (filtros, middlewares)
-  └── pdfs/                # MÓDULO DE PDFS (Aquí ocurre la magia)
-       ├── pdfs.module.ts      # Configuración del módulo
-       ├── pdfs.controller.ts  # Rutas (GET /pdfs, POST /download)
-       ├── pdfs.service.ts     # Lógica de negocio (Consultas a MySQL)
-       └── entities/
-            └── pdf.entity.ts  # Definición de la tabla de la DB (Title, Size, etc.)    
+/
+├── astro-frontend/           # PROYECTO ASTRO
+│   ├── public/               # Archivos estáticos del front (favicon, etc.)
+│   ├── src/
+│   │   ├── assets/           # Imágenes procesadas (portadapdf.webp)
+│   │   ├── components/       # PdfCard.astro, Modal.astro, etc.
+│   │   ├── layouts/          # Plantilla base (Layout.astro)
+│   │   ├── pages/            # Rutas: index.astro, manuales.astro, fichas.astro
+│   │   ├── scripts/          # Lógica de cliente (modal.ts con Axios)
+│   │   └── styles/           # Estilos globales (global.css)
+│   └── package.json
+│
+├── nest-backend/             # PROYECTO NESTJS
+│   ├── public/               # CARPETA DE DESCARGAS REALES
+│   │   └── manuales/         # Aquí guarda los archivos .pdf físicos
+│   ├── src/
+│   │   ├── main.ts           # Configuración de Servidor, CORS y Estáticos
+│   │   ├── app.module.ts     # Conexión principal a MySQL y Módulos
+│   │   └── pdfs/             # Módulo de PDFs
+│   │       ├── pdfs.controller.ts # Endpoints (GET /pdfs, POST /pdfs/download)
+│   │       ├── pdfs.service.ts    # Consultas a la base de datos
+│   │       ├── pdfs.module.ts     # Inyección de dependencias
+│   │       └── entities/
+│   │           └── pdf.entity.ts  # Modelo de la tabla de MySQL
+│   ├── .env                  # Configuración de base de datos y puerto
+│   ├── package.json
+│   └── tsconfig.json         # Configuración de decoradores TS
+└── README.md                 # Documentación del proyecto  
 ```
 
 

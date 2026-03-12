@@ -1,5 +1,15 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.4] Conectar Astro y Backend  - 2026-3-12
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probar todas las paginas de Manuales y Fichas y comprobar que filtra correcto.
+- **Pruebas:** ✅ Hacer el filtrado correcto con los datos obtenidos del backend y la Base de Datos.
+- **Estructura:** Crear `/types/pdf.ts` que contiene el `interface` con la estructura de la tabla de la DB, de manera que en las paginas se puede acceder a esta interface y acceder a `title, type, size, url` sin necesidad de crearlos en cada page.
+
+
+
+
+
 ### [V0.1.3] Conectar Astro y Backend  - 2026-3-12
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Probar descargas desde la págin principal, funciona todo, introduces email, y lo descarga directamente.

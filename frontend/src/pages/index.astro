@@ -3,20 +3,30 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 //import { dataPdfs, type PDFDocument } from "../data/documentos";
 import PdfCard from "../components/PdfCard.astro";
+import type { PDFDocument } from "../types/pdf";
 
-const response = await fetch('http://localhost:3000/pdfs');
-const dataPdfs = await response.json();
+const response = await fetch("http://localhost:3000/pdfs");
+const dataPdfs: PDFDocument[] = await response.json();
+const BACKEND_URL = "http://localhost:3000/manuales";
 ---
 
 <Layout>
   <section class="grid-pdfs">
-   {dataPdfs.map((item: any) =>(
-    <PdfCard
-    title={item.title}
-        size={item.size}
-        type={item.type}
-        url={`http://localhost:3000/manuales/${item.url}`}
-    ></PdfCard>
-   ))}    
+    {
+      dataPdfs.map((item) => (
+        <PdfCard
+          title={item.title}
+          size={item.size}
+          type={item.type}
+          url={`${BACKEND_URL}/${item.url}`}
+        />
+      ))
+    }
+    {/* Un pequeño control de errores por si la base de datos está vacía */}
+    {
+      dataPdfs.length === 0 && (
+        <p class="text-center">No hay documentos disponibles.</p>
+      )
+    }
   </section>
 </Layout>
