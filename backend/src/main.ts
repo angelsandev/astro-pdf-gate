@@ -2,11 +2,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import { Response } from 'express';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   // Configurar la carpeta estática
-  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.useStaticAssets(join(__dirname, '..', 'public'), {
+    setHeaders: (res: Response) => {
+      res.set('Content-Disposition', 'attachment'); // Obliga a Descargar en lugar de Previsualizar el PDF
+    },
+  });
 
   // ACTIVAR CORS: Esto permite que Astro le hable a Nest
   app.enableCors({

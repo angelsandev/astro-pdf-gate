@@ -1,5 +1,13 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.3] Conectar Astro y Backend  - 2026-3-12
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probar descargas desde la págin principal, funciona todo, introduces email, y lo descarga directamente.
+- **index.astro:** Eliminar `type PDFDocument` ya que esa clase ya no se va a utilizar. Esa clase era donde habíamos puesto manualmente todos los objetos para hacer pruebas primeras.
+- **PdfCard.astro:** Eliminar `type PDFDocument` y añadir un `interface Props`.
+- **Frontend:** Cambiar la URL en la llamada de axios y añadir `/pdfs/` a la URL.
+- **Backend:** Crear nuevo endpoint en `pdfs.controllers.ts` llamado `downloads` que se llama desde el `modal.ts` cuando se pulsa el botón de descarga, y devolverá una respuesta.
+- **Backend:** Modificar `main.ts` para añadir una cabecera de manera que permita la Descarga del archivo, evitando la previsualización del PDF, lo descarga directo.
 
 ### [V0.1.2] Crear Controller y Service Backend  - 2026-3-12
 - **Pruebas:** ✅ Todo ok. 

@@ -2,38 +2,39 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import portadapdf from "../assets/portadapdf.webp";
-import type { PDFDocument } from "../data/documentos";
 
-interface Props extends PDFDocument {}// Las Props en este component == lo que hay en PDFDocument
-
+interface Props {
+  title: string;
+  type: string;
+  size: string;
+  url: string;
+}
 const { title, type, size, url } = Astro.props;
-
-
 ---
 
-
-  <article class="card pdf-card">
-    <div class="card-image">
-      <Image
-        src={portadapdf}
-        alt="Portada de manual técnico"
-        width={200}
-        height={250}
-        format="webp"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </div>
-    <div class="card-info">
-      <span class="badge-type">{type}</span>
-      <h2 class="pdf-title">{title}</h2>
-      <p class="pdf-desc">
-        PDF: {size}
-      </p>
-      <button class="btn-primary btn-full" data-pdf-url={url}>Descargar PDF</button>
-      <!-- <a href={url} class="btn-primary btn-full text-center" target="_blank"> 
+<article class="card pdf-card">
+  <div class="card-image">
+    <Image
+      src={portadapdf}
+      alt="Portada de manual técnico"
+      width={200}
+      height={250}
+      format="webp"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="card-info">
+    <span class="badge-type">{type}</span>
+    <h2 class="pdf-title">{title}</h2>
+    <p class="pdf-desc">
+      PDF: {size}
+    </p>
+    <button class="btn-primary btn-full" data-pdf-url={url}
+      >Descargar PDF</button
+    >
+    <!-- <a href={url} class="btn-primary btn-full text-center" target="_blank"> 
         Descargar PDF
       </a>-->
-    </div>
-  </article>
-
+  </div>
+</article>

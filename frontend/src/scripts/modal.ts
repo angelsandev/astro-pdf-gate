@@ -84,7 +84,7 @@ let currentPdfTitle: string = "";
     if (email && currentPdfUrl) {
 
       try {
-        const response = await axios.post('http://localhost:3000/download', {
+        const response = await axios.post('http://localhost:3000/pdfs/download', {
           email: email,
           pdf_name: currentPdfTitle
         });

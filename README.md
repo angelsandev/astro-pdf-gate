@@ -1,6 +1,60 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
+Este proyecto es una aplicación **Full-Stack** diseñada para gestionar la descarga de manuales técnicos. El sistema no solo sirve archivos PDF, sino que actúa como un "gate" o puerta de acceso, requiriendo el registro del email del usuario antes de permitir la descarga.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🏗️ Arquitectura del Sistema
+
+El proyecto se divide en dos grandes bloques comunicados entre sí:
+
+### Backend (NestJS + MySQL)
+Es el motor de la aplicación y se encarga de:
+* **Base de Datos:** Una tabla en **MySQL** almacena la información de los manuales (`title`, `size`, `type`, `url`, `isActive`).
+* **API REST:** Expone endpoints para que el frontend pueda consultar los datos.
+    * `GET /pdfs`: Devuelve el listado completo de manuales desde la DB.
+    * `POST /pdfs/download`: Recibe y registra el email del usuario y el archivo solicitado.
+* **Servidor de Estáticos:** Configurado para servir los archivos físicos PDFs de forma segura, forzando la descarga directa mediante cabeceras `Content-Disposition`.
+* **ORM:** Utiliza **TypeORM** para el mapeo de datos y la conexión con la base de datos.
+
+### Frontend (Astro + TypeScript)
+Es la interfaz de usuario, rápida y optimizada:
+* **Data Fetching:** Astro realiza peticiones al backend durante el tiempo de construcción/renderizado para obtener la lista de PDFs.
+* **Componentes:** Uso de componentes dinámicos como `PdfCard.astro` que reciben los datos del backend mediante *props*.
+* **Lógica de Cliente:** Un script en TypeScript gestiona un **Modal nativo** (`<dialog>`) que intercepta el clic de descarga para validar el email del usuario antes de liberar el archivo.
+* **Comunicación:** Utiliza **Axios** para enviar los datos de registro al backend de forma asíncrona.
+
+---
+
+## 🚀 Flujo de Funcionamiento
+
+1.  **Carga de datos:** Al entrar en la web, Astro solicita a NestJS los manuales. NestJS hace una consulta `SELECT` a MySQL y devuelve un JSON.
+2.  **Visualización:** El frontend pinta una tarjeta por cada manual con su título, tamaño y categoría.
+3.  **Intercepción:** Al pulsar "Descargar", un script de TS bloquea la descarga directa y abre un modal de suscripción.
+4.  **Validación y Registro:** El usuario introduce su email. Si es válido, se envía un `POST` al backend.
+5.  **Descarga Forzada:** Tras el éxito del registro, el frontend crea un enlace temporal que apunta al servidor de estáticos de NestJS, iniciando la descarga automática del archivo.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+* **Frontend:** [Astro](https://astro.build/), TypeScript, Axios.
+* **Backend:** [NestJS](https://nestjs.com/), TypeORM, MySQL Driver.
+* **Base de Datos:** MySQL.
+* **Estilos:** CSS3 nativo con metodología modular.
+
+## Ejecutar servidores en modo desarrollo
+
+### Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm run start:dev
+```
 
 ## Instalaciones necesarias
 
@@ -97,4 +151,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+| `npm run start:dev`       | Starts dev server backend `localhost:3000`      |
 

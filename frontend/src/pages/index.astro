@@ -1,16 +1,21 @@
 ---
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import { dataPdfs, type PDFDocument } from "../data/documentos";
+//import { dataPdfs, type PDFDocument } from "../data/documentos";
 import PdfCard from "../components/PdfCard.astro";
 
+const response = await fetch('http://localhost:3000/pdfs');
+const dataPdfs = await response.json();
 ---
 
 <Layout>
   <section class="grid-pdfs">
-   {dataPdfs.map((item: PDFDocument) =>(
+   {dataPdfs.map((item: any) =>(
     <PdfCard
-    {...item}
+    title={item.title}
+        size={item.size}
+        type={item.type}
+        url={`http://localhost:3000/manuales/${item.url}`}
     ></PdfCard>
    ))}    
   </section>
