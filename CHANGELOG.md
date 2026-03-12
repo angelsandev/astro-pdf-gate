@@ -1,6 +1,14 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.1.1] Forntend y Backend  - 2026-3-11
+
+### [V0.1.2] Crear Controller y Service Backend  - 2026-3-12
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Si ponemos en el navegador `http://localhost:3000/pdfs` se muestran todos los elementos de la tabla pdfs, con su title, size, type, url....
+- **Estructura:** Crear el `Service` que contiene la funcion `findall` par abuscar en el repositorio Pdf.
+- **Estructura:** Crear el `Controller` que crea la URL `/pdfs` y llama  ala funcion `findall` del `Service`.
+
+
+### [V0.1.1] Frontend y Backend  - 2026-3-11
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Al poner `http://localhost:3000/manuales/up1-1.pdf` en el navegador, se abre el pdf correctamente.
 - **Estructura:** Crear un módulo `pdfs` que alberga todos los archivos de configuración y conexión a la DB de MySQL.
