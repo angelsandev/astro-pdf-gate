@@ -1,5 +1,15 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.1] Forntend y Backend  - 2026-3-11
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Al poner `http://localhost:3000/manuales/up1-1.pdf` en el navegador, se abre el pdf correctamente.
+- **Estructura:** Crear un módulo `pdfs` que alberga todos los archivos de configuración y conexión a la DB de MySQL.
+- **Estructura:** Crear la `entity` que es la tabla que estará en MySQL.
+- **Estructura:** Crear carpeta `/public/manuales` y meter todos los pdf necesarios.
+- **MySQL:** Crear DB en `MySQL` y hacer todos los insert para tener todos los pdf en la tabla creada.
+
+
+
 
 ### [V0.1.0] Separar Forntend y Backend  - 2026-3-11
 - **Pruebas:** ✅ Todo ok. 

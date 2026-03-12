@@ -7,13 +7,38 @@
 ### Frontend
 * Instalar axios
 ```bash
+cd frontend
 npm install axios
 ```
 
 ### Backend
 * Instalar librería para leer el .env
 ```bash
+cd backend
 npm install @nestjs/config
+```
+* Instalar conectores a Bases de Datos
+```bash
+cd backend
+npm install @nestjs/typeorm typeorm mysql2
+```
+
+#### Generar un módulo automaticamente con NEST
+Estos comandos generan los archivos y su código básico automaticamente. Y registra el nuevo módulo en `app.module.ts`.
+* Crear el módulo de pdfs 
+* Crear el controlador (el que recibe las peticiones)
+* Crear el servicio (para comunicar con la DB)
+```bash
+nest generate module pdfs
+nest generate controller pdfs --no-spec
+nest generate service pdfs --no-spec
+```
+
+### Configurar NestJS para servir los PDFs estáticos
+Sin instalar `@nestjs/serve-static` y configurar el main.ts, los archivos PDF son "invisibles" para el mundo exterior. Es el "puente" que permite que los archivos viajen desde el disco duro hasta el navegador del usuario.
+
+```bash
+npm install @nestjs/serve-static
 ```
 
 
@@ -42,6 +67,21 @@ src/
     ├── index.astro   # Redirigirá a /manuales o será la Home
     ├── manuales.astro # Página de Manuales
     └── fichas.astro   # Página de Ficha de Datos
+
+
+
+backend/src/
+  ├── main.ts              # Punto de entrada (CORS, Puerto)
+  ├── app.module.ts        # Une todos los módulos: Nest añade PdfsModule aquí dentro
+  ├── app.controller.ts
+  ├── app.service.ts
+  ├── common/              # (Opcional) Cosas compartidas (filtros, middlewares)
+  └── pdfs/                # MÓDULO DE PDFS (Aquí ocurre la magia)
+       ├── pdfs.module.ts      # Configuración del módulo
+       ├── pdfs.controller.ts  # Rutas (GET /pdfs, POST /download)
+       ├── pdfs.service.ts     # Lógica de negocio (Consultas a MySQL)
+       └── entities/
+            └── pdf.entity.ts  # Definición de la tabla de la DB (Title, Size, etc.)    
 ```
 
 
