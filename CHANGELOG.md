@@ -1,5 +1,9 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.5] README Actualizar  - 2026-3-12
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Actualizar Readme con imágenes, Autor, Status, Licencia, etc...
+
 ### [V0.1.4] Conectar Astro y Backend  - 2026-3-12
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Probar todas las paginas de Manuales y Fichas y comprobar que filtra correcto.

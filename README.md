@@ -1,5 +1,49 @@
 # Astro PDF GATE: Descarga de PDFs con validación por email
+[![Astro](https://img.shields.io/badge/Astro-4.0+-orange.svg)](https://astro.build/)
+[![NestJS](https://img.shields.io/badge/NestJS-10.0-red.svg)](https://nestjs.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue.svg)](https://www.mysql.com/)
+[![Status](https://img.shields.io/badge/Status-Terminado-brightgreen.svg)]()
+
 Este proyecto es una aplicación **Full-Stack** diseñada para gestionar la descarga de manuales técnicos. El sistema no solo sirve archivos PDF, sino que actúa como un "gate" o puerta de acceso, requiriendo el registro del email del usuario antes de permitir la descarga.
+
+## 📸 Galería del Proyecto
+
+A continuación se muestran capturas de pantalla de la interfaz de usuario y sus funcionalidades principales:
+
+### Vista Principal (Frontend)
+![Frontend del proyecto astropdfgate](/frontend/public/images/Frontend%20del%20proyecto%20astropdfgate.png)
+
+### Intercepción de Descarga (Modal)
+![Modal Card para introducir email antes de descargar](/frontend/public/images/Modal%20Card%20para%20introducir%20email%20antes%20de%20descargar.png)
+
+### Sistema de Validación
+![Validación del email con Regexp](/frontend/public/images/Validación%20del%20email%20con%20Regexp.png)
+
+---
+
+## ✨ Características Principales
+
+| Característica | Descripción |
+| :--- | :--- |
+| 📱 **Diseño Responsive** | Interfaz adaptada perfectamente a móviles, tablets y ordenadores. |
+| 🛡️ **Validación Robusta** | Sistema de filtrado de emails mediante expresiones regulares (RegExp). |
+| 🎨 **UI Moderna** | Diseño limpio con feedback visual inmediato (estados de error y éxito). |
+| ⚡ **Rendimiento Máximo** | Uso de Astro para una carga instantánea y optimización de imágenes. |
+| 🔍 **SEO Optimizado** | Etiquetas meta y HTML semántico para indexación en buscadores. |
+| 📊 **Gestión de Datos** | Backend centralizado en NestJS con persistencia en MySQL. |
+
+---
+
+## 🆕 Actualizaciones Recientes
+
+✅ **Conexión Real con DB** - Migración de datos estáticos a base de datos MySQL dinámica.  
+✅ **Descarga Forzada** - Implementación de cabeceras de servidor para forzar el guardado de archivos.  
+✅ **Arquitectura de Módulos** - Reestructuración del backend en módulos escalables (PdfsModule).  
+✅ **Validación de Cliente** - Script de validación en tiempo real antes del envío por Axios.  
+✅ **Optimización WebP** - Todas las portadas se procesan automáticamente para pesar un 80% menos.
+
+---
 
 ## 🏗️ Arquitectura del Sistema
 
@@ -42,13 +86,26 @@ Es la interfaz de usuario, rápida y optimizada:
 
 ---
 
+## 🚀 Inicio Rápido
 
+### Requisitos Previos
+* **Node.js** 18 o superior.
+* **MySQL** activo (XAMPP, Docker o local).
+* **NPM** o **PNPM**.
 
-## ⚙️ Configuración del Entorno (.env)
+## Instalación
+
+**Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/tu-usuario/astro-pdf-gate.git](https://github.com/tu-usuario/astro-pdf-gate.git)
+   cd astro-pdf-gate
+   ```
+
+**⚙️ Configuración del Entorno (.env)**
 
 Para que el backend pueda comunicarse con la base de datos y servir los archivos correctamente, es necesario crear un archivo `.env` en la raíz de la carpeta `/backend`.
 
-### Variables requeridas:
+** Variables requeridas:**
 
 | Variable | Descripción | Valor por defecto |
 | :--- | :--- | :--- |
@@ -59,7 +116,7 @@ Para que el backend pueda comunicarse con la base de datos y servir los archivos
 | `DB_PASSWORD` | Contraseña del usuario | *(Vacío)* |
 | `DB_NAME` | Nombre de la base de datos | `astro_pdf_db` |
 
-### Ejemplo de configuración:
+** Ejemplo de configuración:**
 ```env
 PORT=3000
 DB_HOST=localhost
@@ -67,24 +124,6 @@ DB_PORT=3306
 DB_USERNAME=root
 DB_PASSWORD=tu_contraseña_aqui
 DB_NAME=astro_pdf_db
-```
-
----
-
-## Ejecutar servidores en modo desarrollo
-
-### Frontend
-
-```bash
-cd frontend
-npm run dev
-```
-
-### Backend
-
-```bash
-cd backend
-npm run start:dev
 ```
 
 ## Instalaciones necesarias
@@ -108,7 +147,29 @@ cd backend
 npm install @nestjs/typeorm typeorm mysql2
 ```
 
-#### Generar un módulo automaticamente con NEST
+---
+
+## Ejecutar servidores en modo desarrollo
+
+### Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm run start:dev
+```
+
+---
+
+
+
+## Generar un módulo automaticamente con NEST
 Estos comandos generan los archivos y su código básico automaticamente. Y registra el nuevo módulo en `app.module.ts`.
 * Crear el módulo de pdfs 
 * Crear el controlador (el que recibe las peticiones)
@@ -171,7 +232,7 @@ npm install @nestjs/serve-static
 └── README.md                 # Documentación del proyecto  
 ```
 
-
+---
 ## 🧞 Comandos
 
 All commands are run from the root of the project, from a terminal:
@@ -184,6 +245,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm run start:dev`       | Starts dev server backend `localhost:3000`       |
 
-| `npm run start:dev`       | Starts dev server backend `localhost:3000`      |
+---
+## 📝 Licencia
 
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## ✍️ Autor
+Hecho con ❤️ por [**Ángel Sánchez Guillén**](https://github.com/angelsandev)
+
+[![Email](https://img.shields.io/badge/Email-geletesan@hotmail.com-red?style=flat-square&logo=gmail)](mailto:geletesan@hotmail.com)
